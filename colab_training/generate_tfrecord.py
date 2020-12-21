@@ -90,6 +90,8 @@ def main(_):
     # For train - /content/train_zip/train
     # For test - /content/test_zip/test
     path = os.path.join(os.getcwd(), '/content/test_zip/test')
+    if 'train' in FLAGS.output_path:
+        path = os.path.join(os.getcwd(), '/content/train_zip/train')
     examples = pd.read_csv(FLAGS.csv_input)
     grouped = split(examples, 'filename')
     for group in grouped:
