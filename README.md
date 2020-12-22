@@ -1,7 +1,8 @@
-# This is an Elephant Scale copy of the original cloned repo (see below)
+# [This is](https://github.com/elephantscale/E2E-Object-Detection-in-TFLite) an Elephant Scale copy of the original cloned repo
 
 Eventually, it will be it's own repo. The most important part here is the
 [Tutorial for Object Detection](./colab_training/Tutorial_Object_Detection_with_TFLite.ipynb)
+
 # E2E-Object-Detection-in-TFLite
 This repository shows how to train a custom detection model with the [TFOD API](https://github.com/tensorflow/models/tree/master/research/object_detection) (TF2 and TF1), optimize it with TFLite, and perform inference with the optimized model.
 
