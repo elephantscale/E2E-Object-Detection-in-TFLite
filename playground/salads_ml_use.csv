@@ -1,3 +1,4 @@
+Type,ImgAddr,Label,X1,Y1,a,b,X2,Y2
 TEST,gs://cloud-ml-data/img/openimage/103/279324025_3e74a32a84_o.jpg,Baked Goods,0.005743,0.084985,,,0.567511,0.735736
 TEST,gs://cloud-ml-data/img/openimage/103/279324025_3e74a32a84_o.jpg,Salad,0.402759,0.310473,,,1,0.982695
 TEST,gs://cloud-ml-data/img/openimage/1064/3167707458_7b2eebed9e_o.jpg,Cheese,0,0,,,0.054865,0.480665
