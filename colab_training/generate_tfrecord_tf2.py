@@ -1,11 +1,11 @@
-# Sourced from https://github.com/anirbankonar123/CorrosionDetector/blob/master/generate_tfrecord.py
+# Sourced from https://github.com/anirbankonar123/CorrosionDetector/blob/master/generate_tfrecord_tf2.py
 """
 Usage:
   # From tensorflow/models/
   # Create train data:
-  python3 generate_tfrecord.py --csv_input=data/train_labels.csv  --output_path=data/train.record
+  python3 generate_tfrecord_tf2.py --csv_input=data/train_labels.csv  --output_path=data/train.record
   # Create test data:
-  python3 generate_tfrecord.py --csv_input=data/test_labels.csv  --output_path=data/test.record
+  python3 generate_tfrecord_tf2.py --csv_input=data/test_labels.csv  --output_path=data/test.record
 """
 from __future__ import division
 from __future__ import print_function
@@ -33,8 +33,38 @@ def class_text_to_int(row_label):
         return 2
     elif row_label == 'apple':
         return 3
+    elif row_label == 'Baked Goods':
+        return 1
+    elif row_label == 'Cheese':
+        return 2
+    elif row_label == 'Salad':
+        return 3
+    elif row_label == 'Seafood':
+        return 4
+    elif row_label == 'Tomato':
+        return 5
     else:
     	return None
+
+
+def label_encoding_generator():
+    label_encodings = {
+        'Baked Goods' : 1,
+        'Cheese' : 2,
+        'Salad' : 3,
+        'Seafood' : 4,
+        'Tomato' : 5
+    }
+
+    f = open("/content/models/research/label_map.pbtxt", "w")
+
+    for (k, v) in label_encodings.items():
+        item = ("item {\n"
+                "\tid: " + str(v) + "\n"
+                "\tname: '" + k + "'\n"
+                 "}\n")
+    f.write(item)
+    f.close()
 
 
 def split(df, group):
@@ -101,6 +131,8 @@ def main(_):
     writer.close()
     output_path = os.path.join(os.getcwd(), FLAGS.output_path)
     print('Successfully created the TFRecords: {}'.format(output_path))
+    label_encoding_generator()
+
 
 
 if __name__ == '__main__':
