@@ -33,6 +33,16 @@ def class_text_to_int(row_label):
         return 2
     elif row_label == 'apple':
         return 3
+    elif row_label == 'Baked Goods':
+        return 1
+    elif row_label == 'Cheese':
+        return 2
+    elif row_label == 'Salad':
+        return 3
+    elif row_label == 'Seafood':
+        return 4
+    elif row_label == 'Tomato':
+        return 5
     else:
     	return None
 
